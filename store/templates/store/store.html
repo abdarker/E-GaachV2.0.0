@@ -1,0 +1,25 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<span class="navbar-brand"> Currently Available:</span>
+	<div class="row wow fadeIn">
+		{% for product in products %}
+		<div class="col-lg-3 col-md-6 mb-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product text-center">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+                <div>
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-success btn-rounded add-btn update-cart ripple-surface">
+					Add to Cart</button>
+				<br>
+				<br>
+				<!--<a class="btn btn-outline-success" href="#">View</a>-->
+				<h6 style="font-weight-bold blue-text"><strong>BDT {{product.price}}</strong></h6>
+			    </div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
